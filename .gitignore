@@ -8,9 +8,7 @@
 # Crash log files
 crash.log
 
-# Los TFVARS deben de ser excluidos del repositorio cuyo propósito sea definir los recursos
-# y deben de estar presentes en el repositorio dedicado a las configuraciones
-#*.tfvars
+*.tfvars
 
 # Ignore override files as they are usually used to override resources locally and so
 # are not checked in
