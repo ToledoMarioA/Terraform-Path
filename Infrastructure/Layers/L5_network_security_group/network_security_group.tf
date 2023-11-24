@@ -1,11 +1,7 @@
-data "azurerm_resource_group" "example" {
-  name     = "DevOps-Resources"
-}
-
-resource "azurerm_network_security_group" "example" {
+resource "azurerm_network_security_group" "network_security_group" {
   name                = "build-agent-nsg"
-  location            = data.azurerm_resource_group.example.location
-  resource_group_name = data.azurerm_resource_group.example.name
+  location            = var.recover_resource_location
+  resource_group_name = var.recover_resource_name
 
   security_rule {
     name                       = "allow_ssh"
@@ -30,4 +26,11 @@ resource "azurerm_network_security_group" "example" {
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
+}
+
+output "name" {
+  value = azurerm_network_security_group.network_security_group.name
+}
+output "id" {
+  value = azurerm_network_security_group.network_security_group.id
 }

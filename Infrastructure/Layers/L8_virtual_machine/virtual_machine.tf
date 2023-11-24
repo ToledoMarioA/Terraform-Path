@@ -1,12 +1,8 @@
-data "azurerm_resource_group" "example" {
-  name     = "DevOps-Resources"
-}
-
 resource "azurerm_virtual_machine" "example" {
   name                  = "build-agent-vm"
-  location              = data.azurerm_resource_group.example.location
-  resource_group_name   = data.azurerm_resource_group.example.name
-  network_interface_ids = [azurerm_network_interface.example.id]
+  location              = var.recover_resource_location
+  resource_group_name   = var.recover_resource_name
+  network_interface_ids = [var.network_interface_id]
   vm_size               = "Standard_B2s"
 
   storage_image_reference {

@@ -1,16 +1,19 @@
-data "azurerm_resource_group" "example" {
-  name     = "DevOps-Resources"
-}
-
-resource "azurerm_network_interface" "example" {
+resource "azurerm_network_interface" "network_interface" {
   name                = "build-agent-nic"
-  location            = data.azurerm_resource_group.example.location
-  resource_group_name = data.azurerm_resource_group.example.name
+  location            = var.recover_resource_location
+  resource_group_name = var.recover_resource_name
 
   ip_configuration {
     name                          = "build-agent-ipconfig"
-    subnet_id                     = azurerm_subnet.example.id
+    subnet_id                     = var.subnet_id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = azurerm_public_ip.example.id
+    public_ip_address_id          = var.public_ip_id
   }
+}
+
+output "name" {
+  value = azurerm_network_interface.network_interface.name
+}
+output "id" {
+  value = azurerm_network_interface.network_interface.id
 }

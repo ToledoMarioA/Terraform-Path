@@ -1,10 +1,14 @@
-data "azurerm_resource_group" "example" {
-  name     = "DevOps-Resources"
+resource "azurerm_public_ip" "public_ip" {
+  name                         = "build-agent-public-ip"
+  location                     = var.recover_resource_location
+  resource_group_name          = var.recover_resource_name
+  allocation_method            = "Static"
 }
 
-resource "azurerm_public_ip" "example" {
-  name                         = "build-agent-public-ip"
-  location                     = data.azurerm_resource_group.example.location
-  resource_group_name          = data.azurerm_resource_group.example.name
-  allocation_method            = "Static"
+output "name" {
+  value = azurerm_public_ip.public_ip.name
+}
+
+output "id" {
+  value = azurerm_public_ip.public_ip.id
 }

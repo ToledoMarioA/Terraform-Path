@@ -12,22 +12,18 @@ terraform {
 }
 
 provider "azurerm" {
-  
-  subscription_id = ""
-  client_id       = ""
-  client_secret   = ""
-  tenant_id       = ""
+  subscription_id = "407bb65b-f4d1-4f91-9089-f3b2c365a542"
   features {
   }
   skip_provider_registration = true
 }
 
-provider "azapi" {
-  alias           = "tlsfix"
-  subscription_id = ""
-  client_id       = ""
-  client_secret   = ""
-  tenant_id       = ""
+# provider "azapi" {
+#  alias           = "tlsfix"
+#  subscription_id = ""
+#  client_id       = ""
+#  client_secret   = ""
+#  tenant_id       = ""
   
-  skip_provider_registration = true
-}
+ # skip_provider_registration = true
+#}

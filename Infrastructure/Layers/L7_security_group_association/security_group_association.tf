@@ -1,8 +1,4 @@
-data "azurerm_resource_group" "example" {
-  name     = "DevOps-Resources"
-}
-
-resource "azurerm_network_interface_security_group_association" "example" {
-  network_interface_id      = azurerm_network_interface.example.id
-  network_security_group_id = azurerm_network_security_group.example.id
+resource "azurerm_network_interface_security_group_association" "security_group_association" {
+  network_interface_id      = var.network_interface_id
+  network_security_group_id = var.security_group_id
 }
