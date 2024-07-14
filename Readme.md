@@ -1,5 +1,5 @@
 
-# Autor: Ivan Ramos. 
+# Autor: Ivan Ramo. 
 # Noviembre 2023.
 
 # Propósito:
